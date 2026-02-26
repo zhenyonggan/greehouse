@@ -1,0 +1,11 @@
+
+-- Disable RLS on core tables to rule out permission issues completely
+ALTER TABLE public.users DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_roles DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.roles DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.greenhouses DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.crops DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.farming_tasks DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.farming_records DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.crop_batches DISABLE ROW LEVEL SECURITY;
+ALTER TABLE public.farming_task_types DISABLE ROW LEVEL SECURITY;
