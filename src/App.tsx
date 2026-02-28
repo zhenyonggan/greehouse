@@ -10,12 +10,22 @@ import Dashboard from './pages/Dashboard';
 import MainLayout from './layouts/MainLayout';
 import ProtectedRoute from './components/ProtectedRoute';
 import Personnel from './pages/Personnel';
+import Weather from './pages/Weather';
 import Crops from './pages/Crops';
 import Greenhouses from './pages/Greenhouses';
 import GreenhouseDetail from './pages/Greenhouses/GreenhouseDetail';
 import FarmingPlans from './pages/FarmingPlans';
 import FarmingRecords from './pages/FarmingRecords';
 import Reports from './pages/Reports';
+import Profile from './pages/Profile';
+
+import MobileLayout from './layouts/MobileLayout';
+import MobileDashboard from './pages/Mobile/Dashboard';
+import MobileGreenhouses from './pages/Mobile/GreenhouseList';
+import MobileGreenhouseDetail from './pages/Mobile/GreenhouseDetail';
+import MobileTasks from './pages/Mobile/TaskList';
+import MobileProfile from './pages/Mobile/Profile';
+import MobileWeather from './pages/Mobile/Weather';
 
 function App() {
   useEffect(() => {
@@ -37,21 +47,34 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           
+          {/* Desktop Routes */}
           <Route element={<ProtectedRoute />}>
             <Route element={<MainLayout />}>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               
-              {/* Placeholders for other routes */}
               <Route path="/greenhouses" element={<Greenhouses />} />
               <Route path="/greenhouses/:id" element={<GreenhouseDetail />} />
               <Route path="/crops" element={<Crops />} />
               <Route path="/farming-plans" element={<FarmingPlans />} />
               <Route path="/farming-records" element={<FarmingRecords />} />
               <Route path="/personnel" element={<Personnel />} />
+              <Route path="/weather" element={<Weather />} />
               <Route path="/reports" element={<Reports />} />
-              <Route path="/profile" element={<div>个人资料 (开发中)</div>} />
+              <Route path="/profile" element={<Profile />} />
             </Route>
+          </Route>
+
+          {/* Mobile Routes */}
+          <Route path="/m" element={<ProtectedRoute><MobileLayout /></ProtectedRoute>}>
+              <Route index element={<Navigate to="/m/dashboard" replace />} />
+              <Route path="dashboard" element={<MobileDashboard />} />
+              <Route path="greenhouses" element={<MobileGreenhouses />} />
+              <Route path="greenhouses/:id" element={<MobileGreenhouseDetail />} />
+              <Route path="tasks" element={<MobileTasks />} />
+              <Route path="tasks/:id" element={<div>任务详情 (开发中)</div>} />
+              <Route path="weather" element={<MobileWeather />} />
+              <Route path="profile" element={<MobileProfile />} />
           </Route>
 
           <Route path="*" element={<Navigate to="/dashboard" replace />} />

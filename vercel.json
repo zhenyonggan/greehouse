@@ -1,1 +1,20 @@
-{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
+{
+  "rewrites": [
+    {
+      "source": "/api/qweather/(.*)",
+      "destination": "https://api.qweather.com/v7/$1"
+    },
+    {
+      "source": "/api/geo/(.*)",
+      "destination": "https://geoapi.qweather.com/v2/$1"
+    },
+    {
+      "source": "/api/aikenong/(.*)",
+      "destination": "/api/aikenong?path=$1"
+    },
+    {
+      "source": "/((?!api/.*).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

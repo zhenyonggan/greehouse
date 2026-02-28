@@ -8,6 +8,26 @@ export default defineConfig({
   build: {
     sourcemap: 'hidden',
   },
+  server: {
+    proxy: {
+      '/api/qweather': {
+        target: 'https://api.qweather.com/v7',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/qweather/, '')
+      },
+      '/api/geo': {
+        target: 'https://geoapi.qweather.com/v2',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/geo/, '')
+      },
+      '/api/aikenong': {
+        target: 'https://znapi.aikenong.com.cn',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/aikenong/, ''),
+        secure: false // Allow self-signed certs if needed, though aikenong has valid cert
+      }
+    }
+  },
   plugins: [
     react({
       babel: {

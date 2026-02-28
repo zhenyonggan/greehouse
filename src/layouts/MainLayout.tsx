@@ -12,10 +12,14 @@ import {
   FileTextOutlined,
   BarChartOutlined,
   LogoutOutlined,
+  CloudOutlined,
 } from '@ant-design/icons';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { authService } from '../services/authService';
 import { useAuthStore } from '../store/useAuthStore';
+
+import { QRCodeCanvas } from 'qrcode.react';
+import { Popover } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
@@ -24,6 +28,8 @@ const MainLayout: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuthStore();
+
+  const mobileUrl = `${window.location.origin}/m`;
 
   const handleLogout = async () => {
     await authService.logout();
@@ -85,6 +91,13 @@ const MainLayout: React.FC = () => {
       label: <span className="text-base font-medium">人员管理</span>,
       onClick: () => navigate('/personnel'),
       className: getMenuItemClass('/personnel', 'bg-cyan-50 text-cyan-600')
+    },
+    {
+      key: '/weather',
+      icon: <CloudOutlined style={getMenuItemStyle('/weather', '#096dd9')} />,
+      label: <span className="text-base font-medium">环境气象</span>,
+      onClick: () => navigate('/weather'),
+      className: getMenuItemClass('/weather', 'bg-blue-50 text-blue-600')
     },
     {
       key: '/reports',
@@ -154,6 +167,19 @@ const MainLayout: React.FC = () => {
             className="text-lg w-16 h-16"
           />
           <Space size="large">
+            <Popover 
+                content={
+                    <div className="text-center p-2">
+                        <QRCodeCanvas value={mobileUrl} size={150} />
+                        <div className="mt-2 text-gray-500 text-sm">扫码直接访问手机版</div>
+                    </div>
+                } 
+                title="手机端访问" 
+                trigger="hover"
+            >
+                <Button onClick={() => navigate('/m')} type="link">手机版</Button>
+            </Popover>
+
             <Dropdown menu={userMenu} placement="bottomRight">
               <Space className="cursor-pointer hover:bg-gray-50 px-2 py-1 rounded transition-colors">
                 <Avatar icon={<UserOutlined />} className="bg-primary" />
