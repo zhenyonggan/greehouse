@@ -21,35 +21,42 @@ graph TD
 
 ## 2. 技术描述
 
-- **前端**: React@18 + TypeScript + TailwindCSS@3 + Vite
-- **初始化工具**: Vite-init
-- **后端服务**: Supabase（BaaS平台）
-- **UI组件库**: Ant Design@5
-- **状态管理**: React Context + useReducer
-- **图表库**: ECharts@5
-- **日期处理**: Dayjs
-- **富文本编辑器**: React-Quill
+* **前端**: React\@18 + TypeScript + TailwindCSS\@3 + Vite
+
+* **初始化工具**: Vite-init
+
+* **后端服务**: Supabase（BaaS平台）
+
+* **UI组件库**: Ant Design\@5
+
+* **状态管理**: React Context + useReducer
+
+* **图表库**: ECharts\@5
+
+* **日期处理**: Dayjs
+
+* **富文本编辑器**: React-Quill
 
 ## 3. 路由定义
 
-| 路由 | 用途 |
-|------|------|
-| / | 登录页面，用户身份验证 |
-| /dashboard | 工作台首页，显示个人任务概览 |
-| /greenhouses | 大棚管理页面，大棚列表和详情 |
-| /greenhouses/:id | 具体大棚详情页面 |
-| /greenhouses/:id/calendar | 大棚农事日历页面 |
-| /crops | 作物管理页面，作物库列表 |
-| /crops/new | 新增作物页面 |
-| /crops/:id | 作物详情页面 |
-| /farming-plans | 农事计划管理页面 |
-| /farming-plans/daily | 每日任务页面 |
-| /farming-records | 农事记录页面 |
-| /personnel | 人员管理页面 |
-| /personnel/new | 新增人员页面 |
-| /personnel/:id | 人员详情页面 |
-| /reports | 数据报表页面 |
-| /profile | 个人资料页面 |
+| 路由                        | 用途             |
+| ------------------------- | -------------- |
+| /                         | 登录页面，用户身份验证    |
+| /dashboard                | 工作台首页，显示个人任务概览 |
+| /greenhouses              | 大棚管理页面，大棚列表和详情 |
+| /greenhouses/:id          | 具体大棚详情页面       |
+| /greenhouses/:id/calendar | 大棚农事日历页面       |
+| /crops                    | 作物管理页面，作物库列表   |
+| /crops/new                | 新增作物页面         |
+| /crops/:id                | 作物详情页面         |
+| /farming-plans            | 农事计划管理页面       |
+| /farming-plans/daily      | 每日任务页面         |
+| /farming-records          | 农事记录页面         |
+| /personnel                | 人员管理页面         |
+| /personnel/new            | 新增人员页面         |
+| /personnel/:id            | 人员详情页面         |
+| /reports                  | 数据报表页面         |
+| /profile                  | 个人资料页面         |
 
 ## 4. 数据模型
 
@@ -370,29 +377,34 @@ INSERT INTO farming_task_types (name, category, description, required_materials,
 ### 5.1 认证相关API
 
 #### 用户登录
+
 ```
 POST /api/auth/login
 ```
 
 请求参数：
-| 参数名 | 类型 | 必填 | 描述 |
-|--------|------|------|------|
-| email | string | 是 | 用户邮箱 |
-| password | string | 是 | 用户密码 |
+
+| 参数名      | 类型     | 必填 | 描述   |
+| -------- | ------ | -- | ---- |
+| email    | string | 是  | 用户邮箱 |
+| password | string | 是  | 用户密码 |
 
 响应参数：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| user | object | 用户信息 |
-| token | string | 访问令牌 |
-| refresh_token | string | 刷新令牌 |
+
+| 参数名            | 类型     | 描述   |
+| -------------- | ------ | ---- |
+| user           | object | 用户信息 |
+| token          | string | 访问令牌 |
+| refresh\_token | string | 刷新令牌 |
 
 #### 用户登出
+
 ```
 POST /api/auth/logout
 ```
 
 #### 获取当前用户信息
+
 ```
 GET /api/auth/me
 ```
@@ -400,109 +412,126 @@ GET /api/auth/me
 ### 5.2 大棚管理API
 
 #### 获取大棚列表
+
 ```
 GET /api/greenhouses
 ```
 
 查询参数：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| page | number | 页码 |
-| limit | number | 每页数量 |
-| status | string | 状态筛选 |
-| manager_id | string | 管理员筛选 |
+
+| 参数名         | 类型     | 描述    |
+| ----------- | ------ | ----- |
+| page        | number | 页码    |
+| limit       | number | 每页数量  |
+| status      | string | 状态筛选  |
+| manager\_id | string | 管理员筛选 |
 
 #### 创建大棚
+
 ```
 POST /api/greenhouses
 ```
 
 请求体：
-| 参数名 | 类型 | 必填 | 描述 |
-|--------|------|------|------|
-| code | string | 是 | 大棚编号 |
-| name | string | 是 | 大棚名称 |
-| location | string | 是 | 位置 |
-| area | number | 是 | 面积 |
-| structure_type | string | 否 | 结构类型 |
-| capacity | number | 否 | 容量 |
-| manager_id | string | 是 | 管理员ID |
+
+| 参数名             | 类型     | 必填 | 描述    |
+| --------------- | ------ | -- | ----- |
+| code            | string | 是  | 大棚编号  |
+| name            | string | 是  | 大棚名称  |
+| location        | string | 是  | 位置    |
+| area            | number | 是  | 面积    |
+| structure\_type | string | 否  | 结构类型  |
+| capacity        | number | 否  | 容量    |
+| manager\_id     | string | 是  | 管理员ID |
 
 #### 更新大棚信息
+
 ```
 PUT /api/greenhouses/:id
 ```
 
 #### 删除大棚
+
 ```
 DELETE /api/greenhouses/:id
 ```
 
 #### 分配人员到大棚
+
 ```
 POST /api/greenhouses/:id/assign-personnel
 ```
 
 请求体：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| user_ids | array | 用户ID数组 |
-| role_type | string | 角色类型 |
+
+| 参数名        | 类型     | 描述     |
+| ---------- | ------ | ------ |
+| user\_ids  | array  | 用户ID数组 |
+| role\_type | string | 角色类型   |
 
 #### 分配作物到大棚
+
 ```
 POST /api/greenhouses/:id/assign-crop
 ```
 
 请求体：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| crop_id | string | 作物ID |
-| planting_area | number | 种植面积 |
-| planting_quantity | number | 种植数量 |
-| planting_date | string | 种植日期 |
+
+| 参数名                | 类型     | 描述   |
+| ------------------ | ------ | ---- |
+| crop\_id           | string | 作物ID |
+| planting\_area     | number | 种植面积 |
+| planting\_quantity | number | 种植数量 |
+| planting\_date     | string | 种植日期 |
 
 #### 获取大棚农事日历
+
 ```
 GET /api/greenhouses/:id/calendar
 ```
 
 查询参数：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| start_date | string | 开始日期 |
-| end_date | string | 结束日期 |
-| view_type | string | 视图类型（month/week） |
+
+| 参数名         | 类型     | 描述               |
+| ----------- | ------ | ---------------- |
+| start\_date | string | 开始日期             |
+| end\_date   | string | 结束日期             |
+| view\_type  | string | 视图类型（month/week） |
 
 ### 5.3 作物管理API
 
 #### 获取作物列表
+
 ```
 GET /api/crops
 ```
 
 #### 创建作物
+
 ```
 POST /api/crops
 ```
 
 请求体：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| name | string | 作物名称 |
-| category | string | 作物类别 |
-| variety | string | 品种 |
-| description | string | 描述 |
-| growth_stages | array | 生长阶段 |
-| environmental_requirements | object | 环境要求 |
-| growth_period_days | number | 生长周期天数 |
+
+| 参数名                         | 类型     | 描述     |
+| --------------------------- | ------ | ------ |
+| name                        | string | 作物名称   |
+| category                    | string | 作物类别   |
+| variety                     | string | 品种     |
+| description                 | string | 描述     |
+| growth\_stages              | array  | 生长阶段   |
+| environmental\_requirements | object | 环境要求   |
+| growth\_period\_days        | number | 生长周期天数 |
 
 #### 更新作物信息
+
 ```
 PUT /api/crops/:id
 ```
 
 #### 删除作物
+
 ```
 DELETE /api/crops/:id
 ```
@@ -510,48 +539,55 @@ DELETE /api/crops/:id
 ### 5.4 农事计划API
 
 #### 获取农事任务列表
+
 ```
 GET /api/farming-tasks
 ```
 
 查询参数：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| greenhouse_id | string | 大棚ID |
-| planned_date | string | 计划日期 |
-| status | string | 任务状态 |
-| assigned_worker_id | string | 分配工人ID |
+
+| 参数名                  | 类型     | 描述     |
+| -------------------- | ------ | ------ |
+| greenhouse\_id       | string | 大棚ID   |
+| planned\_date        | string | 计划日期   |
+| status               | string | 任务状态   |
+| assigned\_worker\_id | string | 分配工人ID |
 
 #### 创建农事任务
+
 ```
 POST /api/farming-tasks
 ```
 
 请求体：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| greenhouse_id | string | 大棚ID |
-| crop_batch_id | string | 作物批次ID |
-| task_type_id | string | 任务类型ID |
-| title | string | 任务标题 |
-| description | string | 任务描述 |
-| planned_date | string | 计划日期 |
-| planned_start_time | string | 计划开始时间 |
-| planned_end_time | string | 计划结束时间 |
-| assigned_worker_id | string | 分配工人ID |
-| priority | string | 优先级 |
+
+| 参数名                  | 类型     | 描述     |
+| -------------------- | ------ | ------ |
+| greenhouse\_id       | string | 大棚ID   |
+| crop\_batch\_id      | string | 作物批次ID |
+| task\_type\_id       | string | 任务类型ID |
+| title                | string | 任务标题   |
+| description          | string | 任务描述   |
+| planned\_date        | string | 计划日期   |
+| planned\_start\_time | string | 计划开始时间 |
+| planned\_end\_time   | string | 计划结束时间 |
+| assigned\_worker\_id | string | 分配工人ID |
+| priority             | string | 优先级    |
 
 #### 更新农事任务
+
 ```
 PUT /api/farming-tasks/:id
 ```
 
 #### 获取每日任务
+
 ```
 GET /api/farming-tasks/daily/:date
 ```
 
 #### 获取任务类型列表
+
 ```
 GET /api/farming-task-types
 ```
@@ -559,29 +595,33 @@ GET /api/farming-task-types
 ### 5.5 农事记录API
 
 #### 创建农事记录
+
 ```
 POST /api/farming-records
 ```
 
 请求体：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| task_id | string | 任务ID |
-| execution_date | string | 执行日期 |
-| start_time | string | 开始时间 |
-| end_time | string | 结束时间 |
-| actual_materials_used | array | 实际使用材料 |
-| notes | string | 备注 |
-| photos | array | 照片URLs |
-| weather_conditions | string | 天气条件 |
-| execution_result | string | 执行结果 |
+
+| 参数名                     | 类型     | 描述     |
+| ----------------------- | ------ | ------ |
+| task\_id                | string | 任务ID   |
+| execution\_date         | string | 执行日期   |
+| start\_time             | string | 开始时间   |
+| end\_time               | string | 结束时间   |
+| actual\_materials\_used | array  | 实际使用材料 |
+| notes                   | string | 备注     |
+| photos                  | array  | 照片URLs |
+| weather\_conditions     | string | 天气条件   |
+| execution\_result       | string | 执行结果   |
 
 #### 获取农事记录列表
+
 ```
 GET /api/farming-records
 ```
 
 #### 获取个人执行记录
+
 ```
 GET /api/farming-records/my-records
 ```
@@ -589,28 +629,33 @@ GET /api/farming-records/my-records
 ### 5.6 人员管理API
 
 #### 获取人员列表
+
 ```
 GET /api/users
 ```
 
 查询参数：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| department | string | 部门筛选 |
-| position | string | 职位筛选 |
-| is_active | boolean | 状态筛选 |
+
+| 参数名        | 类型      | 描述   |
+| ---------- | ------- | ---- |
+| department | string  | 部门筛选 |
+| position   | string  | 职位筛选 |
+| is\_active | boolean | 状态筛选 |
 
 #### 创建用户
+
 ```
 POST /api/users
 ```
 
 #### 更新用户信息
+
 ```
 PUT /api/users/:id
 ```
 
 #### 分配角色
+
 ```
 POST /api/users/:id/assign-role
 ```
@@ -618,23 +663,27 @@ POST /api/users/:id/assign-role
 ### 5.7 数据报表API
 
 #### 获取生产统计
+
 ```
 GET /api/reports/production
 ```
 
 查询参数：
-| 参数名 | 类型 | 描述 |
-|--------|------|------|
-| start_date | string | 开始日期 |
-| end_date | string | 结束日期 |
-| greenhouse_id | string | 大棚ID |
+
+| 参数名            | 类型     | 描述   |
+| -------------- | ------ | ---- |
+| start\_date    | string | 开始日期 |
+| end\_date      | string | 结束日期 |
+| greenhouse\_id | string | 大棚ID |
 
 #### 获取效率分析
+
 ```
 GET /api/reports/efficiency
 ```
 
 #### 获取成本分析
+
 ```
 GET /api/reports/cost
 ```
@@ -643,14 +692,14 @@ GET /api/reports/cost
 
 ### 6.1 角色权限矩阵
 
-| 功能模块 | 管理员 | 大棚管理员 | 技术人员 | 普通工人 |
-|----------|--------|------------|----------|----------|
-| 用户管理 | 全部权限 | 查看 | 无 | 无 |
-| 大棚管理 | 全部权限 | 全部权限 | 查看分配的大棚 | 无 |
-| 作物管理 | 全部权限 | 全部权限 | 查看 | 无 |
-| 农事计划 | 全部权限 | 全部权限 | 管理分配大棚的计划 | 查看分配的任务 |
-| 农事记录 | 全部权限 | 全部权限 | 查看分配大棚的记录 | 管理个人记录 |
-| 数据报表 | 全部权限 | 查看 | 查看 | 无 |
+| 功能模块 | 管理员  | 大棚管理员 | 技术人员      | 普通工人    |
+| ---- | ---- | ----- | --------- | ------- |
+| 用户管理 | 全部权限 | 查看    | 无         | 无       |
+| 大棚管理 | 全部权限 | 全部权限  | 查看分配的大棚   | 无       |
+| 作物管理 | 全部权限 | 全部权限  | 查看        | 无       |
+| 农事计划 | 全部权限 | 全部权限  | 管理分配大棚的计划 | 查看分配的任务 |
+| 农事记录 | 全部权限 | 全部权限  | 查看分配大棚的记录 | 管理个人记录  |
+| 数据报表 | 全部权限 | 查看    | 查看        | 无       |
 
 ### 6.2 Supabase RLS策略
 
@@ -724,3 +773,4 @@ GRANT ALL ON farming_tasks TO authenticated;
 GRANT SELECT ON farming_records TO anon;
 GRANT ALL ON farming_records TO authenticated;
 ```
+

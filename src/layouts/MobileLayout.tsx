@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Layout, TabBar } from 'antd-mobile';
+import { TabBar } from 'antd-mobile';
 import { 
   AppOutline, 
   UnorderedListOutline, 

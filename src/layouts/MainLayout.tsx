@@ -13,6 +13,7 @@ import {
   BarChartOutlined,
   LogoutOutlined,
   CloudOutlined,
+  DatabaseOutlined,
 } from '@ant-design/icons';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { authService } from '../services/authService';
@@ -37,7 +38,7 @@ const MainLayout: React.FC = () => {
   };
 
   const getMenuItemStyle = (key: string, color: string) => {
-    const isSelected = location.pathname === key;
+    const isSelected = location.pathname === key || (key !== '/' && location.pathname.startsWith(key));
     return {
       fontSize: '18px',
       color: isSelected ? color : undefined,
@@ -45,7 +46,7 @@ const MainLayout: React.FC = () => {
   };
 
   const getMenuItemClass = (key: string, bgClass: string) => {
-    const isSelected = location.pathname === key;
+    const isSelected = location.pathname === key || (key !== '/' && location.pathname.startsWith(key));
     return `my-3 py-6 rounded-xl transition-all duration-300 ${isSelected ? bgClass + ' shadow-sm' : 'hover:bg-gray-50'}`;
   };
 
@@ -105,6 +106,44 @@ const MainLayout: React.FC = () => {
       label: <span className="text-base font-medium">数据报表</span>,
       onClick: () => navigate('/reports'),
       className: getMenuItemClass('/reports', 'bg-indigo-50 text-indigo-600')
+    },
+    {
+      key: '/inventory',
+      icon: <DatabaseOutlined style={getMenuItemStyle('/inventory', '#595959')} />,
+      label: <span className="text-base font-medium">库存管理</span>,
+      className: getMenuItemClass('/inventory', 'bg-gray-100 text-gray-700'),
+      children: [
+        {
+          key: '/inventory/dashboard',
+          label: '库存概览',
+          onClick: () => navigate('/inventory/dashboard'),
+        },
+        {
+          key: '/inventory/products',
+          label: '货品基础',
+          onClick: () => navigate('/inventory/products'),
+        },
+        {
+          key: '/inventory/inbound',
+          label: '入库管理',
+          onClick: () => navigate('/inventory/inbound'),
+        },
+        {
+          key: '/inventory/outbound',
+          label: '出库管理',
+          onClick: () => navigate('/inventory/outbound'),
+        },
+        {
+          key: '/inventory/operations',
+          label: '库存操作',
+          onClick: () => navigate('/inventory/operations'),
+        },
+        {
+          key: '/inventory/reports',
+          label: '库存查询',
+          onClick: () => navigate('/inventory/reports'),
+        },
+      ]
     },
   ];
 

@@ -19,6 +19,13 @@ import FarmingRecords from './pages/FarmingRecords';
 import Reports from './pages/Reports';
 import Profile from './pages/Profile';
 
+import InventoryDashboard from './pages/Inventory/Dashboard';
+import ProductManagement from './pages/Inventory/Products';
+import InboundManagement from './pages/Inventory/Inbound';
+import OutboundManagement from './pages/Inventory/Outbound';
+import OperationsManagement from './pages/Inventory/Operations';
+import ReportsManagement from './pages/Inventory/Reports';
+
 import MobileLayout from './layouts/MobileLayout';
 import MobileDashboard from './pages/Mobile/Dashboard';
 import MobileGreenhouses from './pages/Mobile/GreenhouseList';
@@ -62,6 +69,14 @@ function App() {
               <Route path="/weather" element={<Weather />} />
               <Route path="/reports" element={<Reports />} />
               <Route path="/profile" element={<Profile />} />
+
+              {/* Inventory Routes */}
+              <Route path="/inventory/dashboard" element={<InventoryDashboard />} />
+              <Route path="/inventory/products" element={<ProductManagement />} />
+              <Route path="/inventory/inbound" element={<InboundManagement />} />
+              <Route path="/inventory/outbound" element={<OutboundManagement />} />
+              <Route path="/inventory/operations" element={<OperationsManagement />} />
+              <Route path="/inventory/reports" element={<ReportsManagement />} />
             </Route>
           </Route>
 
