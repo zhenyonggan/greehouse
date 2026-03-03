@@ -1,0 +1,52 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/api/qweather(?:/(.*))$",
+      "dest": "https://api.qweather.com/v7/$1",
+      "check": true
+    },
+    {
+      "src": "^/api/geo(?:/(.*))$",
+      "dest": "https://geoapi.qweather.com/v2/$1",
+      "check": true
+    },
+    {
+      "src": "^/api/aikenong(?:/(.*))$",
+      "dest": "/api/aikenong?path=$1",
+      "check": true
+    },
+    {
+      "src": "^(?:/((?!api/.*).*))$",
+      "dest": "/index.html",
+      "check": true
+    },
+    {
+      "src": "^/api(/.*)?$",
+      "status": 404
+    },
+    {
+      "handle": "error"
+    },
+    {
+      "status": 404,
+      "src": "^(?!/api).*$",
+      "dest": "/404.html"
+    },
+    {
+      "handle": "miss"
+    },
+    {
+      "src": "^/api/(.+)(?:\\.(?:js))$",
+      "dest": "/api/$1",
+      "check": true
+    }
+  ],
+  "framework": {
+    "version": "6.4.1"
+  },
+  "crons": []
+}

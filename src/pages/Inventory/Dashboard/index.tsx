@@ -185,7 +185,7 @@ const InventoryDashboard: React.FC = () => {
       title: '操作类型',
       dataIndex: 'type',
       key: 'type',
-      render: (text: string, record: any) => {
+      render: (text: string) => {
         let color = 'geekblue';
         let label = text;
         if (text === 'inbound') { color = 'green'; label = '入库'; }

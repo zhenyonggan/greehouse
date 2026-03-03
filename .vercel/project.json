@@ -1,1 +1,16 @@
-{"projectId":"prj_taQpksuaUJSie5Tnv8WTuB7F66Ov","orgId":"team_OudnoNUtFdxujrI4bkQg727u","projectName":"trae_eo0lfunl","neverMindDeployCard":true}
+{
+  "projectId": "prj_taQpksuaUJSie5Tnv8WTuB7F66Ov",
+  "orgId": "team_OudnoNUtFdxujrI4bkQg727u",
+  "projectName": "trae_eo0lfunl",
+  "settings": {
+    "createdAt": 1772017892247,
+    "framework": "vite",
+    "devCommand": "vite --port $PORT",
+    "installCommand": null,
+    "buildCommand": "vite build",
+    "outputDirectory": "dist",
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

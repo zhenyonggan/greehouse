@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Tabs, Table, Tag, Input, Button, Space, DatePicker } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { inventoryService } from '../../../services/inventoryService';
-import dayjs from 'dayjs';
 
 const { RangePicker } = DatePicker;
 

@@ -46,8 +46,16 @@ const MainLayout: React.FC = () => {
   };
 
   const getMenuItemClass = (key: string, bgClass: string) => {
+    // 只有在非折叠状态下，且没有子菜单时，才应用自定义样式
+    // 对于有子菜单的项（如库存管理），Ant Design 会处理展开/收起，我们只控制选中态
     const isSelected = location.pathname === key || (key !== '/' && location.pathname.startsWith(key));
-    return `my-3 py-6 rounded-xl transition-all duration-300 ${isSelected ? bgClass + ' shadow-sm' : 'hover:bg-gray-50'}`;
+    
+    // 如果是子菜单项（路径包含两个/以上），使用标准样式
+    if (key.split('/').length > 2) {
+       return '';
+    }
+
+    return `my-2 rounded-lg transition-all duration-300 ${isSelected ? bgClass + ' shadow-sm' : 'hover:bg-gray-50'}`;
   };
 
   const menuItems = [

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Row, Col, Button, Modal, Form, Select, Input, InputNumber, message, Table, Tag, Tabs } from 'antd';
-import { SwapOutlined, CheckSquareOutlined, ScissorOutlined, PlusOutlined } from '@ant-design/icons';
+import { Card, Row, Col, Modal, Form, Select, Input, InputNumber, message, Table, Tag } from 'antd';
+import { SwapOutlined, CheckSquareOutlined, ScissorOutlined } from '@ant-design/icons';
 import { inventoryService, OperationRecord, Product } from '../../../services/inventoryService';
 import dayjs from 'dayjs';
 

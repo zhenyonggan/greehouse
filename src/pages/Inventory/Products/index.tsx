@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Space, Input, Modal, Form, Select, message, Spin } from 'antd';
+import { Table, Button, Space, Input, Modal, Form, Select, message } from 'antd';
 import { PlusOutlined, SearchOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { inventoryService, Product } from '../../../services/inventoryService';
 
