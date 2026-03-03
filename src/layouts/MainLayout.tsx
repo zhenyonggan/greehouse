@@ -184,7 +184,7 @@ const MainLayout: React.FC = () => {
             </div>
             {!collapsed && (
                 <span className="text-xl font-bold text-gray-800 tracking-wide">
-                    智慧大棚
+                    智慧大棚 Pro
                 </span>
             )}
           </div>
