@@ -87,27 +87,6 @@ const MainLayout: React.FC = () => {
       className: getMenuItemClass('/farming-records', 'bg-pink-50 text-pink-600')
     },
     {
-      key: '/personnel',
-      icon: <UserOutlined style={getMenuItemStyle('/personnel', '#13c2c2')} />,
-      label: <span className="text-base font-medium">人员管理</span>,
-      onClick: () => navigate('/personnel'),
-      className: getMenuItemClass('/personnel', 'bg-cyan-50 text-cyan-600')
-    },
-    {
-      key: '/weather',
-      icon: <CloudOutlined style={getMenuItemStyle('/weather', '#096dd9')} />,
-      label: <span className="text-base font-medium">环境气象</span>,
-      onClick: () => navigate('/weather'),
-      className: getMenuItemClass('/weather', 'bg-blue-50 text-blue-600')
-    },
-    {
-      key: '/reports',
-      icon: <BarChartOutlined style={getMenuItemStyle('/reports', '#2f54eb')} />,
-      label: <span className="text-base font-medium">数据报表</span>,
-      onClick: () => navigate('/reports'),
-      className: getMenuItemClass('/reports', 'bg-indigo-50 text-indigo-600')
-    },
-    {
       key: '/inventory',
       icon: <DatabaseOutlined style={getMenuItemStyle('/inventory', '#595959')} />,
       label: <span className="text-base font-medium">库存管理</span>,
@@ -144,6 +123,27 @@ const MainLayout: React.FC = () => {
           onClick: () => navigate('/inventory/reports'),
         },
       ]
+    },
+    {
+      key: '/personnel',
+      icon: <UserOutlined style={getMenuItemStyle('/personnel', '#13c2c2')} />,
+      label: <span className="text-base font-medium">人员管理</span>,
+      onClick: () => navigate('/personnel'),
+      className: getMenuItemClass('/personnel', 'bg-cyan-50 text-cyan-600')
+    },
+    {
+      key: '/weather',
+      icon: <CloudOutlined style={getMenuItemStyle('/weather', '#096dd9')} />,
+      label: <span className="text-base font-medium">环境气象</span>,
+      onClick: () => navigate('/weather'),
+      className: getMenuItemClass('/weather', 'bg-blue-50 text-blue-600')
+    },
+    {
+      key: '/reports',
+      icon: <BarChartOutlined style={getMenuItemStyle('/reports', '#2f54eb')} />,
+      label: <span className="text-base font-medium">数据报表</span>,
+      onClick: () => navigate('/reports'),
+      className: getMenuItemClass('/reports', 'bg-indigo-50 text-indigo-600')
     },
   ];
 
